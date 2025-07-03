@@ -3,7 +3,7 @@ const { connect } = require("mongoose");
 const { ServerCredentials, Server } = require("@grpc/grpc-js");
 const { loadProto } = require("./src/utils/loadProto");
 const VideosServices = require("./src/services/videosServices");
-const initializeQueueConsumers = require("./src/queue");
+//const initializeQueueConsumers = require("./src/queue");
 
 const environments = {
   development: "Desarrollo",
@@ -19,9 +19,9 @@ const DB = process.env.MONGO_DATABASE.replace(
   ).replace("<USER>", process.env.MONGO_USER);
   
   connect(DB).then(() => console.log("✓ Conexión a base de datos exitosa"));
-  initializeQueueConsumers().then(() =>
-  console.log("✓ Conexión con RabbitMQ exitosa.")
-);
+//   initializeQueueConsumers().then(() =>
+//   console.log("✓ Conexión con RabbitMQ exitosa.")
+// );
 
 const PORT = 3000;
 const enviroment = "Desarrollo";
